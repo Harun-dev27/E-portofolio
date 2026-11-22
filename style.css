@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background-color: lightgrey;
+  font-family: Arial, sans-serif;
+}
+
+.main-frame {
+  background-color: white;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+.layout {
+  display: flex;
+  height: 80vh;
+  gap: 20px;
+}
+.sidebar {
+  width: 200px;
+  padding: 20px;
+  background-color: #1e293b;
+  color: white;
+  border-radius: 8px;
+}
+.sidebar > ul {
+  list-style: none;
+  padding: 0;
+}
+.sidebar > ul > li {
+  padding: 10px;
+  transition: background-color 0.2s;
+}
+.sidebar > ul > li:hover {
+  background-color: #334155;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.sidebar > ul > li.active {
+  background-color: #334155;
+  border-radius: 6px;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-content: start;
+  flex: 1;
+  padding: 20px;
+  background-color: #f1f5f9;
+  border-radius: 8px;
+}
+.content h3 {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+.description {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #64748b;
+}
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+.card p {
+  color: #64748b;
+  font-size: 14px;
+}
+.card h4 {
+  margin: 0 0 8px 0;
+}
+.card.hidden {
+  display: none;
+}
+
+.education-list.hidden {
+  display: none;
+}
+.education-list {
+  grid-column: 1 /-1;
+  margin: 0;
+  padding: 20px;
+}
+.skills-list {
+  grid-column: 1 /-1;
+  margin: 0;
+}
+.skills-list.hidden {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+  .card:hover {
+    transform: none;
+  }
+}
