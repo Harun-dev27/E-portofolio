@@ -14,25 +14,25 @@ const pages = {
 
 const education = [
   {
-    Title: "Bachelor of Education",
+    title: "Bachelor of Education",
     year: "2022 - 2025",
-    Institution: "Mount Kenya University",
+    institution: "Mount Kenya University",
   },
   {
-    Title: "Bachelor of Science in Computer Science",
+    title: "Bachelor of Science in Computer Science",
     year: "In progress",
-    Institution: "Open University of Kenya",
+    institution: "Open University of Kenya",
   },
   {
-    Title: "Diploma in Information Communication Technology",
+    title: "Diploma in Information Communication Technology",
     year: "2022 - 2025",
-    Institution: "Kamukunji Technical and Vocational College",
+    institution: "Kamukunji Technical and Vocational College",
   },
 
   {
-    Title: "Kenya Certificate of Secondary Education",
+    title: "Kenya Certificate of Secondary Education",
     year: "2017 - 2020",
-    Institution: "Banisa Mixed Day Secondary School",
+    institution: "Banisa Mixed Day Secondary School",
   },
 ];
 
@@ -76,7 +76,7 @@ sidebarMenuList.forEach(function (item) {
 education.forEach(function (entry) {
   const li = document.createElement("li");
   li.textContent =
-    entry.Title + " - " + entry.Institution + " (" + entry.year + ")";
+    entry.title + " - " + entry.institution + " (" + entry.year + ")";
   educationList.appendChild(li);
 });
 
