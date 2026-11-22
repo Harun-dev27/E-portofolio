@@ -92,18 +92,27 @@ body {
   display: none;
 }
 .education-list {
-  grid-column: 1 /-1;
+  grid-column: 1 / -1;
   margin: 0;
   padding: 20px;
 }
 .skills-list {
-  grid-column: 1 /-1;
+  grid-column: 1 / -1;
   margin: 0;
+  padding: 20px;
 }
 .skills-list.hidden {
   display: none;
 }
+.contact-list.hidden {
+  display: none;
+}
 
+.contact-list {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 20px;
+}
 @media (prefers-reduced-motion: reduce) {
   .card {
     transition: none;

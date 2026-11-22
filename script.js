@@ -4,12 +4,13 @@ const cards = document.querySelectorAll(".card");
 const sidebarMenuList = document.querySelectorAll(".sidebar > ul > li");
 const educationList = document.querySelector(".education-list");
 const skillsList = document.querySelector(".skills-list");
+const contactList = document.querySelector(".contact-list");
 const pages = {
   Home: "Welcome to my portfolio.",
   Projects: "These are the completed projects.",
   Education: "These are my education qualifications.",
   Skills: "These are the skills that I possess.",
-  Contact: "+254712345789",
+  Contact: "You can reach me through:",
 };
 
 const education = [
@@ -37,6 +38,12 @@ const education = [
 ];
 
 const skills = ["HTML", "CSS", "JavaScript", "Problem solving"];
+
+const contact = [
+  { label: "Phone", value: "+2547123456789" },
+  { label: "Email", value: "h@gmail.com" },
+  { label: "Nationality", value: "Kenyan" },
+];
 
 sidebarMenuList.forEach(function (item) {
   item.addEventListener("click", function () {
@@ -69,6 +76,12 @@ sidebarMenuList.forEach(function (item) {
       skillsList.classList.add("hidden");
     }
 
+    if (item.textContent === "Contact") {
+      contactList.classList.remove("hidden");
+    } else {
+      contactList.classList.add("hidden");
+    }
+
     localStorage.setItem("page", item.textContent);
   });
 });
@@ -84,6 +97,12 @@ skills.forEach(function (skill) {
   const li = document.createElement("li");
   li.textContent = skill;
   skillsList.appendChild(li);
+});
+
+contact.forEach(function (details) {
+  const li = document.createElement("li");
+  li.textContent = details.label + ":  " + details.value + ":  ";
+  contactList.appendChild(li);
 });
 
 const savedPage = localStorage.getItem("page");
