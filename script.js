@@ -5,6 +5,7 @@ const sidebarMenuList = document.querySelectorAll(".sidebar > ul > li");
 const educationList = document.querySelector(".education-list");
 const skillsList = document.querySelector(".skills-list");
 const contactList = document.querySelector(".contact-list");
+const homeIntro = document.querySelector(".intro");
 const pages = {
   Home: "Welcome to my portfolio.",
   Projects: "These are the completed projects.",
@@ -12,6 +13,10 @@ const pages = {
   Skills: "These are the skills that I possess.",
   Contact: "You can reach me through:",
 };
+
+const home = [
+  "Hello, I'm Harun Abdirahman Mohamed, a Kenyan educator and aspiring software engineer. I hold a Bachelor of Education and a Diploma in ICT, and I'm currently pursuing a Bachelor of Science in Computer Science. I build web projects with HTML, CSS and JavaScript, and I learn best by making things from scratch. Outside of coding, I enjoy reading, and I'm hoping to become a full stack software engineer.",
+];
 
 const education = [
   {
@@ -64,6 +69,12 @@ sidebarMenuList.forEach(function (item) {
       });
     }
 
+    if (item.textContent === "Home") {
+      homeIntro.classList.remove("hidden");
+    } else {
+      homeIntro.classList.add("hidden");
+    }
+
     if (item.textContent === "Education") {
       educationList.classList.remove("hidden");
     } else {
@@ -82,8 +93,14 @@ sidebarMenuList.forEach(function (item) {
       contactList.classList.add("hidden");
     }
 
-    localStorage.setItem("page", item.textContent);
+    sessionStorage.setItem("page", item.textContent);
   });
+});
+
+home.forEach(function (intro) {
+  const li = document.createElement("li");
+  li.textContent = intro;
+  homeIntro.appendChild(li);
 });
 
 education.forEach(function (entry) {
@@ -101,11 +118,11 @@ skills.forEach(function (skill) {
 
 contact.forEach(function (details) {
   const li = document.createElement("li");
-  li.textContent = details.label + ":  " + details.value + ":  ";
+  li.textContent = details.label + ":  " + details.value;
   contactList.appendChild(li);
 });
 
-const savedPage = localStorage.getItem("page");
+const savedPage = sessionStorage.getItem("page") || "Home";
 if (savedPage) {
   sidebarMenuList.forEach(function (menuItem) {
     if (menuItem.textContent === savedPage) {

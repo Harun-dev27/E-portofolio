@@ -88,6 +88,16 @@ body {
   display: none;
 }
 
+.intro.hidden {
+  display: none;
+}
+.intro {
+  grid-column: 1 / -1;
+  margin: 0;
+  line-height: 1.6;
+  list-style: none;
+  padding-left: 0;
+}
 .education-list.hidden {
   display: none;
 }
