@@ -35,13 +35,14 @@ body {
   transition: background-color 0.2s;
 }
 .sidebar > ul > li:hover {
-  background-color: #334155;
+  background-color: #273449;
   border-radius: 6px;
   cursor: pointer;
 }
 .sidebar > ul > li.active {
   background-color: #334155;
   border-radius: 6px;
+  font-weight: bold;
 }
 
 .content {
@@ -88,15 +89,16 @@ body {
   display: none;
 }
 
-.intro.hidden {
-  display: none;
-}
 .intro {
   grid-column: 1 / -1;
   margin: 0;
   line-height: 1.6;
   list-style: none;
   padding-left: 0;
+}
+
+.intro.hidden {
+  display: none;
 }
 .education-list.hidden {
   display: none;
@@ -129,5 +131,30 @@ body {
   }
   .card:hover {
     transform: none;
+  }
+}
+@media (max-width: 1024px) {
+  .content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+    height: auto;
+  }
+  .sidebar {
+    width: 100%;
+  }
+  .content {
+    grid-template-columns: 1fr;
+  }
+  .main-frame h1 {
+    font-size: 24px;
+  }
+  .education-list,
+  .skills-list,
+  .contact-list {
+    padding: 0 0 0 20px;
   }
 }
