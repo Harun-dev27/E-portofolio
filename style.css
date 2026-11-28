@@ -45,6 +45,8 @@ body {
   font-weight: bold;
 }
 
+/* Contents and cards*/
+
 .content {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -125,6 +127,8 @@ body {
   margin: 0;
   padding: 20px;
 }
+
+/* Responsive*/
 @media (prefers-reduced-motion: reduce) {
   .card {
     transition: none;

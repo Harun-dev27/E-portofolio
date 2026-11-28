@@ -1,3 +1,4 @@
+// Selectors.
 const heading = document.querySelector(".content h3");
 const description = document.querySelector(".description");
 const cards = document.querySelectorAll(".card");
@@ -6,9 +7,11 @@ const educationList = document.querySelector(".education-list");
 const skillsList = document.querySelector(".skills-list");
 const contactList = document.querySelector(".contact-list");
 const homeIntro = document.querySelector(".intro");
+
+// Data.
 const pages = {
   Home: "Welcome to my portfolio.",
-  Projects: "These are the completed projects.",
+  Projects: "Here are some of the projects I have built.",
   Education: "These are my education qualifications.",
   Skills: "These are the skills that I possess.",
   Contact: "You can reach me through:",
@@ -45,10 +48,20 @@ const education = [
 const skills = ["HTML", "CSS", "JavaScript", "Problem solving"];
 
 const contact = [
-  { label: "Phone", value: "+2547123456789" },
-  { label: "Email", value: "h@gmail.com" },
-  { label: "Nationality", value: "Kenyan" },
+  {
+    label: "Email",
+    value: "harunabdirahman5@gmail.com",
+    href: "mailto:harunabdirahman5@gmail.com",
+  },
+  {
+    label: "GitHub",
+    value: "Github.com/Harun-dev27",
+    href: "https://github.com/Harun-dev27",
+  },
+  { label: "Location", value: "Nairobi, Kenya" },
 ];
+
+// Click handling: update heading, description, and visible section.
 
 sidebarMenuList.forEach(function (item) {
   item.addEventListener("click", function () {
@@ -118,15 +131,24 @@ skills.forEach(function (skill) {
 
 contact.forEach(function (details) {
   const li = document.createElement("li");
-  li.textContent = details.label + ":  " + details.value;
+  li.textContent = details.label + ": ";
+  if (details.href) {
+    const link = document.createElement("a");
+    link.href = details.href;
+    link.textContent = details.value;
+    li.appendChild(link);
+  } else {
+    li.textContent += details.value;
+  }
   contactList.appendChild(li);
 });
 
+// Open on the saved page, or Home on a fresh visit.
+
 const savedPage = sessionStorage.getItem("page") || "Home";
-if (savedPage) {
-  sidebarMenuList.forEach(function (menuItem) {
-    if (menuItem.textContent === savedPage) {
-      menuItem.click();
-    }
-  });
-}
+
+sidebarMenuList.forEach(function (menuItem) {
+  if (menuItem.textContent === savedPage) {
+    menuItem.click();
+  }
+});
